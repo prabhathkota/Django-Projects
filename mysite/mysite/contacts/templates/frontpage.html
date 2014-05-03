@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+  {% for each in side_bar %}
+    {{ each }}
+    <hr />
+  {% endfor %}
+{% endblock %}
+
+{% block main %}
+  {% for each in arr %}
+    {{ each }}
+    <hr />
+  {% endfor %}
+
+{% endblock %}

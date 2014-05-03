@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_block %}
+	<link href="{{ STATIC_URL }}style.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block js_block %}
+	function getCheckedBoxes(chkboxName) {
+		  var checkboxes = document.getElementsByName(chkboxName);
+			  var checked_count = 0;
+		  var checkboxesChecked = [];
+		  // loop over them all
+		  for (var i=0; i<checkboxes.length; i++) {
+			 // And stick the checked ones onto an array...
+			 if (checkboxes[i].checked) {
+				checkboxesChecked.push(checkboxes[i].value);
+				checked_count++;
+			 }
+		  }
+		  
+		  if (checked_count == 0) {
+			  alert('Select atleast one testcase before you run');
+			  return false;
+		  } else {
+			  //Return the array if it is non-empty, or null
+			  //Return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+			  var str = checkboxesChecked.join();
+			  //alert('String is : ' + str);
+		  }
+	}
+
+	function checkedAllNone(isChecked) {
+		var c = document.getElementsByName('testcases');
+		for (var i = 0; i < c.length; i++){
+			if (c[i].type == 'checkbox'){
+				c[i].checked = isChecked;
+			}
+		}
+	}
+{% endblock %}
+
+{% block sidebar %}
+	  <br/>
+	  {% for key, value in side_bar.items %}
+		<b> <a href="{% url value %}">{{ key }} </a> </b> <br/><br/>
+	  {% endfor %}
+{% endblock %}
+
+{% block main %}
+	<form action="{% url 'run_testcase' %}" method="post">
+
+	<b> Sanity Testcases : </b> 
+	 <a href="javascript:checkedAllNone('True');">All</a> | <a href="javascript:checkedAllNone('');">None</a> &nbsp;&nbsp;
+	<br/><br/>
+
+	<table><tr>
+	{% if sanity_testcase_names %}
+		{% for each in sanity_testcase_names %}
+		   <td width="30%"><input type="checkbox" name="testcases" value="{{ each }}"> {{ each }} </td>
+		   {% if forloop.last %}
+			 </tr>
+		   {% else %}
+			 {% if forloop.counter|divisibleby:"3" %}
+			   </tr><tr>
+			 {% endif %}
+		   {% endif %}
+		{% endfor %}
+	{% else %}
+		<tr><td style="white-space: nowrap"><p>No Sanity Testcases are available.</p></td></tr>
+	{% endif %}
+	</table>
+
+	<br/><br/>
+	<input type="Submit" name="Run Testcases" value="Run Testcases" onclick="return getCheckedBoxes('testcases')">
+	<br/><br/>
+	</form>
+
+{% endblock %}
+
+

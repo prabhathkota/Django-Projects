@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Search For Book Title: </title> <br/>
+</head>
+<body>
+      <h2>Books</h2>
+    <ul>
+        {% for book in books_filter_by_name %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

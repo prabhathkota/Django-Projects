@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_block %}
+	<link href="{{ STATIC_URL }}style.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block sidebar %}
+	  <br/>
+	  {% for key, value in side_bar.items %}
+		<b> <a href="{% url value %}">{{ key }} </a> </b> <br/><br/>
+	  {% endfor %}
+{% endblock %}
+
+{% block main %}
+	<b> Sanity Test Results : </b> <br/> <br/>
+
+	<table>
+	{% if selected_tests %}
+	   Currently Running Testcases : <br/>
+		{% for each_selected_testcase in selected_tests %}
+		  <tr> <td>   <b> {{ each_selected_testcase }} </b> </td></tr>
+		{% endfor %}
+	{% else %}
+		<tr><td style="white-space: nowrap"><p>No Sanity Testcases are available.</p></td></tr>
+	{% endif %}
+	</table>
+
+	<br/>
+	<table><tr>
+
+	</table>
+
+	<br/> <b> Output : </b> <br/>
+	<div>
+	<table style="border:none;">
+	{% if my_stream_data %}
+		{% for each in my_stream_data %}
+		   <tr> <td style="border:none;">   {{ each }} </td> </tr>
+		{% endfor %}
+	{% else %}
+		<tr><td ><p>No Sanity Results available</p></td></tr>
+	{% endif %}
+    </table>
+	<br />
+	</div> 
+
+	</form>
+{% endblock %}
+
+

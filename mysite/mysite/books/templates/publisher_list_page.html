@@ -1,0 +1,9 @@
+{% block content %}
+<title> Generic Views</title>
+    <h2>Publishers 1</h2>
+    <ul>
+        {% for publisher in object_list %}
+            <li>{{ publisher.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

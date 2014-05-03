@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Search For Book Title: </title> <br/>
+</head>
+<body>
+      <h2>Books</h2>
+    <ul>
+        {% for book in object_list %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+	
+	      <h2>Extra Info</h2>
+    <ul>
+        
+        <li>{{ extra.a }}</li>
+        <li>{{ extra.b }}</li>
+		<li>{{ extra.c }}</li>
+    </ul>
+	
+</body>
+</html>

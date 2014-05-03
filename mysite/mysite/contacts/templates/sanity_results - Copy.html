@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<style>
+		tr:nth-child(odd){background-color: #EEE; }
+		td{padding:5px; border: 1px solid;}
+		table {border-collapse: collapse;}
+		</style>
+	</head>
+<body>
+<form action="{% url 'sanity_list_testcases' %}" method="post">
+
+<b> Sanity Test Results : </b> <br/> <br/>
+
+<table>
+{% if selected_tests %}
+   Currently Running Testcases : <br/>
+	{% for each_selected_testcase in selected_tests %}
+      <tr> <td>   <b> {{ each_selected_testcase }} </b> </td></tr>
+	{% endfor %}
+{% else %}
+    <tr><td style="white-space: nowrap"><p>No Sanity Testcases are available.</p></td></tr>
+{% endif %}
+</table>
+
+<br/>
+<b> <input type="Submit" name="Back" value="Go Back to List Page"> </b>
+<table><tr>
+
+</table>
+
+<br/> <b> Output : </b> <br/>
+<div>
+<table style="border:none;">
+{% if my_stream_data %}
+	{% for each in my_stream_data %}
+       <tr> <td style="border:none;">   {{ each }} </td> </tr>
+	{% endfor %}
+{% else %}
+    <tr><td ><p>No Sanity Results available</p></td></tr>
+{% endif %}
+
+<br />
+</div> 
+
+</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+    <div id="login">
+	    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+        <form class="form-horizontal" name="SendEmailForm" action="{% url 'contacts_send_email' %}" method="post">
+        {% csrf_token %}
+
+        <div class="control-group">
+            <label class="control-label" for="subject">subject</label>
+            <div class="controls">
+                <input type="text" id="subject" name="subject"  placeholder="subject">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="message">message</label>
+            <div class="controls">
+                <input type="text" name="message" id="message" placeholder="message">
+            </div>
+        </div>
+		<div class="control-group">
+            <label class="control-label" for="from_email">Email</label>
+            <div class="controls">
+                <input type="text" name="from_email" id="from_email" placeholder="email">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">Login</button>
+            </div>
+        </div>
+        </form>
+    </div>

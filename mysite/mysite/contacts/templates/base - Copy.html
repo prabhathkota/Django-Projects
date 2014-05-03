@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+	body {
+	 margin: 0;
+	 padding: 0;
+	 font-family: Georgia, Times, "Times New Roman", serif;
+	 color: black;
+	 width: 1200px;
+	 border-right: 1px solid black;
+	}
+	#header {
+	 background-color: #666;
+	 border-bottom: 1px solid #333;
+	}
+	#sidebarLeft {
+	 float: left;
+	 width: 260px;
+	 margin-left: 10px;
+	 padding-top: 1em;
+	}
+	#mainRight {
+	 padding-top: 1em;
+	 margin: 0 2em 0 200px;
+	}
+	#footer {
+	 clear: both;
+	 background-color: #ccc;
+	 padding-bottom: 1em;
+	 border-top: 1px solid #333;
+	 padding-left: 200px;
+	 border-bottom: 1px solid #333;
+	}
+	h2.sidebar {
+	  font-size: 120%;
+	}
+</style>
+<title>{% block title %}Qualcomm Run Test Suite - Web Interface{% endblock %}</title>
+</head>
+<body>
+
+<div id="header" align="center">
+  <h1>Qualcomm Run Test Suite - Web Interface</h1>
+</div>
+<div id="sidebarLeft">
+  {% block sidebar %}
+  {% endblock %}
+</div>
+<div id="mainRight">
+  {% block main %}{% endblock %}
+</div>
+<div id="footer" align="center">
+ &copy;2013 QUALCOMM Incorporated and/or its subsidiaries. All Rights Reserved.
+</div> 
+
+</body>
+</html>

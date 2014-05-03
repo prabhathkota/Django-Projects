@@ -1,0 +1,6 @@
+
+tr:nth-child(odd){background-color: #EEE; }
+
+td{padding:5px; border: 1px solid;}
+
+table {border-collapse: collapse;}

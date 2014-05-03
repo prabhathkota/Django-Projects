@@ -1,0 +1,45 @@
+{% extends "mysite_base.html" %}
+{% load static %}
+
+{% block css_block %}
+	<link href="{{ STATIC_URL }}style.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block js_block %}
+
+{% endblock %}
+
+{% block leftPanel %}
+    <br>
+	{% if left_side_bar %}
+		{% for each in left_side_bar %}
+		   {{each}} <br>
+		{% endfor %}
+	{% else %}
+		None <br>
+	{% endif %}
+
+{% endblock %}
+
+{% block centerPanel %}
+    <br>
+	{% if left_side_bar %}
+		{% for each in left_side_bar %}
+		   {{each}} <br>
+		{% endfor %}
+	{% else %}
+		None <br>
+	{% endif %}
+{% endblock %}
+
+{% block rightPanel %}
+    <br>
+	{% if left_side_bar %}
+		{% for each in left_side_bar %}
+		   {{each}} <br>
+		{% endfor %}
+	{% else %}
+		None <br>
+	{% endif %}
+
+{% endblock %}

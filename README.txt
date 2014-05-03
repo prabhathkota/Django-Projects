@@ -42,4 +42,7 @@ http://127.0.0.1:8000/api/expose/poll/
 http://127.0.0.1:8000/api/expose/publisher
 http://127.0.0.1:8000/api/expose/publisher?format=json
 
-
+Generic Class Based Views
+##########################
+In urls.py refer 
+Generic Views for Polls -> IndexView, DetailView, ResultsView, ListView
